@@ -8,4 +8,9 @@
     <string name="title_profile">Profile</string>
     <string name="title_upload">Upload</string>
     <string name="title_library">Library</string>
+    <string name="My_Upload">My Upload</string>
+    <string name="Upload_My_Book">upload my book</string>
+    <string name="My_Book">My Book</string>
+    <string name="My_Upload_Book">my upload book</string>
+    <string name="gallery">Gallery</string>
 </resources>
