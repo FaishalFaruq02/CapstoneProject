@@ -41,6 +41,11 @@ class MyUploadActivity : AppCompatActivity() {
 
         val previewImageView: ImageView = binding.previewImageView
         val galleryButton: Button = binding.galleryButton
+        val cameraButton: Button = binding.cameraButton
+
+        cameraButton.setOnClickListener {
+            startCameraActivity()
+        }
 
         galleryButton.setOnClickListener {
             startGallery()
@@ -50,6 +55,11 @@ class MyUploadActivity : AppCompatActivity() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         currentImageUri?.let { outState.putString("currentImageUri", it.toString()) }
+    }
+
+    private fun startCameraActivity() {
+        val intent = Intent(this, CameraActivity::class.java)
+        startActivity(intent)
     }
 
     private fun startGallery() {
