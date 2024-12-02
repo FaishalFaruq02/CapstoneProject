@@ -14,4 +14,5 @@
     <string name="My_Upload_Book">my upload book</string>
     <string name="gallery">Gallery</string>
     <string name="camera">Camera</string>
+    <string name="upload">Upload</string>
 </resources>
