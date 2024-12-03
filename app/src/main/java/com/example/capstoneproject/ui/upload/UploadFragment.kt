@@ -7,15 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowInsetsController
-import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.capstoneproject.R
 import com.example.capstoneproject.databinding.FragmentUploadBinding
 import com.example.capstoneproject.ui.upload.myupload.MyUploadActivity
-
-// fragment ini, pada saat landscape masih error (force closed)
 
 class UploadFragment : Fragment() {
 
@@ -31,37 +26,36 @@ class UploadFragment : Fragment() {
             ViewModelProvider(this).get(UploadViewModel::class.java)
 
         _binding = FragmentUploadBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        return binding.root
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        // Setup tombol CardView ke upload
+        binding.cardMyUpload.setOnClickListener {
+            val intent = Intent(requireContext(), MyUploadActivity::class.java)
+            startActivity(intent)
+        }
+
+        // Setup tombol CardView ke buku saya
+        binding.cardMyBook.setOnClickListener {
+            // Tambahkan aksi navigasi ke halaman buku saya
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             requireActivity().window.setDecorFitsSystemWindows(false)
-            requireActivity().window.insetsController?.apply {
-                hide(WindowInsetsController.BEHAVIOR_SHOW_BARS_BY_SWIPE)
+            requireActivity().window.insetsController?.let { controller ->
+                controller.hide(WindowInsetsController.BEHAVIOR_SHOW_BARS_BY_SWIPE)
             }
         } else {
             @Suppress("DEPRECATION")
             requireActivity().window.decorView.systemUiVisibility =
                 View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
         }
-
-        // cardview untuk my upload
-        val cardMyUpload = root.findViewById<CardView>(R.id.card_my_upload)
-        cardMyUpload.setOnClickListener {
-            // Tambahkan aksi navigasi ke halaman upload buku
-
-            // Intent ke MyUploadActivity saat klik card My Upload
-            val intent = Intent(requireContext(), MyUploadActivity::class.java)
-            startActivity(intent)
-        }
-
-        // cardview untuk my book
-        val cardMyBook = root.findViewById<CardView>(R.id.card_my_book)
-        cardMyBook.setOnClickListener {
-            // Tambahkan aksi navigasi ke halaman buku saya
-
-        }
-
-        return root
     }
 
     override fun onDestroyView() {
