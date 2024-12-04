@@ -39,11 +39,18 @@ class MyUploadActivity : AppCompatActivity() {
         currentImageUri = savedInstanceState?.getString("CURRENT_IMAGE_URI")?.let { Uri.parse(it) }
         if (currentImageUri != null) {
             showImage()
+            updateUploadButtonState()
         }
 
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.cameraButton.setOnClickListener { checkCameraPermission() }
-        binding.uploadButton.setOnClickListener { uploadImage() }
+        binding.uploadButton.setOnClickListener {
+            if (currentImageUri != null) {
+                uploadImage()
+            } else {
+                Toast.makeText(this, "Choose an Image First!", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -61,6 +68,7 @@ class MyUploadActivity : AppCompatActivity() {
         if (uri != null) {
             currentImageUri = uri
             showImage()
+            updateUploadButtonState()
         } else {
             Toast.makeText(this, "No media selected or action canceled.", Toast.LENGTH_SHORT).show()
             Log.d("Photo Picker", "No media selected")
@@ -73,7 +81,6 @@ class MyUploadActivity : AppCompatActivity() {
             val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE).apply {
                 putExtra(MediaStore.EXTRA_OUTPUT, imageUri)
             }
-
             try {
                 cameraLauncher.launch(intent)
                 currentImageUri = imageUri
@@ -91,6 +98,7 @@ class MyUploadActivity : AppCompatActivity() {
             if (result.resultCode == RESULT_OK) {
                 Toast.makeText(this, "Photo saved successfully!", Toast.LENGTH_SHORT).show()
                 showImage()
+                updateUploadButtonState()
             } else {
                 Toast.makeText(this, "Camera action canceled.", Toast.LENGTH_SHORT).show()
             }
@@ -124,6 +132,10 @@ class MyUploadActivity : AppCompatActivity() {
         } ?: run {
             Toast.makeText(this, "No image to display", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun updateUploadButtonState() {
+        binding.uploadButton.isEnabled = currentImageUri != null
     }
 
     private fun uploadImage() {
