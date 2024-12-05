@@ -43,7 +43,7 @@
         android:backgroundTint="@color/primary"
         app:layout_constraintBottom_toTopOf="@+id/uploadButton" />
 
-    <com.example.capstoneproject.ui.upload.myupload.ButtonGallery
+    <com.example.capstoneproject.ui.upload.myupload.Button
         android:id="@+id/uploadButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

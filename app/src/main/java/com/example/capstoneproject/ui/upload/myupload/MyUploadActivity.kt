@@ -46,11 +46,15 @@ class MyUploadActivity : AppCompatActivity() {
         binding.cameraButton.setOnClickListener { checkCameraPermission() }
         binding.uploadButton.setOnClickListener {
             if (currentImageUri != null) {
-                uploadImage()
+                val intent = Intent(this, MyUploadBookActivity::class.java).apply {
+                    putExtra("IMAGE_URI", currentImageUri.toString())
+                }
+                startActivity(intent)
             } else {
-                Toast.makeText(this, "Choose an Image First!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Please select or take a photo first!", Toast.LENGTH_SHORT).show()
             }
         }
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
