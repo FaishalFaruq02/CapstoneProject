@@ -31,17 +31,13 @@ class MyUploadBookActivity : AppCompatActivity() {
             insets
         }
 
-        // Dapatkan URI gambar dari Intent
         val imageUri = intent.getStringExtra("IMAGE_URI")?.let { Uri.parse(it) }
 
-        // Referensi ImageView
         val imagePreview: ImageView = findViewById(R.id.imagePreview)
 
-        // Tampilkan gambar jika URI tidak null
         if (imageUri != null) {
             imagePreview.setImageURI(imageUri)
         }
-        // Referensi TextInputEditText dan Button
         titleEditText = findViewById(R.id.titleEditText)
         descriptionEditText = findViewById(R.id.descriptionEditText)
         authorsEditText = findViewById(R.id.authorsEditText)
@@ -50,7 +46,6 @@ class MyUploadBookActivity : AppCompatActivity() {
         generalCategoryEditText = findViewById(R.id.generalCategoryEditText)
         saveButton = findViewById(R.id.saveButton)
 
-        // Tambahkan TextWatcher untuk memantau input
         val textWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -59,7 +54,6 @@ class MyUploadBookActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {}
         }
 
-        // Pasang TextWatcher ke semua EditText
         titleEditText.addTextChangedListener(textWatcher)
         descriptionEditText.addTextChangedListener(textWatcher)
         authorsEditText.addTextChangedListener(textWatcher)
@@ -67,7 +61,6 @@ class MyUploadBookActivity : AppCompatActivity() {
         publishDateEditText.addTextChangedListener(textWatcher)
         generalCategoryEditText.addTextChangedListener(textWatcher)
 
-        // Validasi awal
         validateInputs()
     }
 
@@ -79,7 +72,6 @@ class MyUploadBookActivity : AppCompatActivity() {
         val isPublishDateValid = !publishDateEditText.text.isNullOrEmpty()
         val isGeneralCategoryValid = !generalCategoryEditText.text.isNullOrEmpty()
 
-        // Aktifkan tombol hanya jika semua input valid
         saveButton.isEnabled =
             isTitleValid && isDescriptionValid && isAuthorsValid && isPublisherValid && isPublishDateValid && isGeneralCategoryValid
     }

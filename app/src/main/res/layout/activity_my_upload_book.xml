@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Title"
+            android:text="@string/title"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_marginBottom="4dp" />
@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"
+            android:text="@string/description"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_marginTop="16dp"
@@ -75,7 +75,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Authors"
+            android:text="@string/authors"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_marginTop="16dp"
@@ -99,7 +99,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Publisher"
+            android:text="@string/publisher"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_marginTop="16dp"
@@ -123,7 +123,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Publish Date"
+            android:text="@string/publish_date"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_marginTop="16dp"
@@ -147,7 +147,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="General Category"
+            android:text="@string/general_category"
             android:textSize="16sp"
             android:textColor="@color/black"
             android:layout_marginTop="16dp"
@@ -173,6 +173,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"
             android:enabled="false"/>
 
     </LinearLayout>

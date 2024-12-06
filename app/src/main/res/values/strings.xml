@@ -16,4 +16,10 @@
     <string name="camera">Camera</string>
     <string name="upload">Upload</string>
     <string name="next">Next</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="authors">Authors</string>
+    <string name="publisher">Publisher</string>
+    <string name="publish_date">Publish Date</string>
+    <string name="general_category">General Category</string>
 </resources>
