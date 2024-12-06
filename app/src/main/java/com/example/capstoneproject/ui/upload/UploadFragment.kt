@@ -10,6 +10,7 @@ import android.view.WindowInsetsController
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.capstoneproject.databinding.FragmentUploadBinding
+import com.example.capstoneproject.ui.upload.mybook.MyBookActivity
 import com.example.capstoneproject.ui.upload.myupload.MyUploadActivity
 
 class UploadFragment : Fragment() {
@@ -40,7 +41,8 @@ class UploadFragment : Fragment() {
 
         // Setup tombol CardView ke buku saya
         binding.cardMyBook.setOnClickListener {
-            // Tambahkan aksi navigasi ke halaman buku saya
+            val intent = Intent(requireContext(), MyBookActivity::class.java)
+            startActivity(intent)
         }
     }
 

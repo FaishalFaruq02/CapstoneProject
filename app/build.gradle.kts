@@ -56,5 +56,5 @@ dependencies {
     implementation(libs.androidx.camera.camera2.v130)
     implementation(libs.androidx.camera.lifecycle.v130)
     implementation(libs.androidx.camera.view.v130)
-
+    implementation (libs.circleimageview)
 }

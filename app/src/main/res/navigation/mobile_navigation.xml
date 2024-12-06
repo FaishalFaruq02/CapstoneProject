@@ -27,5 +27,20 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.capstoneproject.ui.profile.ProfileFragment"
         android:label="@string/title_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile">
+
+        <!-- Action to LibraryFragment -->
+        <action
+            android:id="@+id/action_navigation_profile_to_library"
+            app:destination="@id/navigation_library"
+            app:popUpTo="@id/navigation_profile"
+            app:popUpToInclusive="true" />
+
+        <!-- Action to UploadFragment -->
+        <action
+            android:id="@+id/action_navigation_profile_to_upload"
+            app:destination="@id/navigation_upload"
+            app:popUpTo="@id/navigation_profile"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>

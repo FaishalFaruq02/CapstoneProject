@@ -20,6 +20,15 @@
         android:theme="@style/Theme.CapstoneProject"
         tools:targetApi="31">
         <activity
+            android:name=".ui.upload.mybook.MyBookActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.status.MyStatusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.settings.SettingsActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.upload.myupload.MyUploadBookActivity"
             android:exported="false" />
         <activity
