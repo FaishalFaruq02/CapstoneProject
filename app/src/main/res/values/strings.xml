@@ -22,4 +22,11 @@
     <string name="publisher">Publisher</string>
     <string name="publish_date">Publish Date</string>
     <string name="general_category">General Category</string>
+    <string name="My_Status">My Status</string>
+    <string name="View_Status">Check Your Status</string>
+    <string name="My_Library">My Library</string>
+    <string name="View_Library">Check Your Library</string>
+    <string name="Upload_Book">Check Your Upload</string>
+    <string name="Settings">Settings</string>
+    <string name="Update_Settings">Update Your Settings</string>
 </resources>
