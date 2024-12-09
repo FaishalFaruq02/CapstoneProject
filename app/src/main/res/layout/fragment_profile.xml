@@ -47,7 +47,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
-            app:cardBackgroundColor="@color/primary"
             app:cardCornerRadius="8dp">
 
             <RelativeLayout
@@ -60,7 +59,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/My_Status"
-                    android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -80,8 +78,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/baseline_arrow_right_24"
-                    app:tint="@android:color/white" />
+                    android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -92,7 +89,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
-            app:cardBackgroundColor="@color/primary"
             app:cardCornerRadius="8dp">
 
             <RelativeLayout
@@ -105,7 +101,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/My_Library"
-                    android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -125,8 +120,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/baseline_arrow_right_24"
-                    app:tint="@android:color/white" />
+                    android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -137,7 +131,6 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
-            app:cardBackgroundColor="@color/primary"
             app:cardCornerRadius="8dp">
 
             <RelativeLayout
@@ -150,7 +143,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/My_Upload"
-                    android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -170,8 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/baseline_arrow_right_24"
-                    app:tint="@android:color/white" />
+                    android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
@@ -181,7 +172,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            app:cardBackgroundColor="@color/primary"
             app:cardCornerRadius="8dp">
 
             <RelativeLayout
@@ -194,7 +184,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Settings"
-                    android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -214,8 +203,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:src="@drawable/baseline_arrow_right_24"
-                    app:tint="@android:color/white" />
+                    android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
