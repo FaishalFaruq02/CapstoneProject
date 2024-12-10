@@ -3,11 +3,13 @@ package com.example.capstoneproject.ui.home
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.capstoneproject.R
 
 class BookAdapter(private val bookList: List<DataItem>) :
@@ -15,9 +17,10 @@ class BookAdapter(private val bookList: List<DataItem>) :
 
         // menampilkan title, author, rating, gambar belum ada di response API
     inner class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView = view.findViewById(R.id.tvBookTitle)
-        val author: TextView = view.findViewById(R.id.tvBookAuthor)
-        val rating: RatingBar = view.findViewById(R.id.rbBookRating)
+            val image: ImageView = view.findViewById(R.id.ivBookCover)
+            val title: TextView = view.findViewById(R.id.tvBookTitle)
+            val author: TextView = view.findViewById(R.id.tvBookAuthor)
+            val rating: RatingBar = view.findViewById(R.id.rbBookRating)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -28,9 +31,18 @@ class BookAdapter(private val bookList: List<DataItem>) :
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book = getItem(position)
+
+        // Load image using Glide
+        Glide.with(holder.itemView.context)
+            .load(book.image)
+            .placeholder(R.drawable.baseline_image_24)
+            .error(R.drawable.baseline_image_24)
+            .into(holder.image)
+
+        // Set other data
         holder.title.text = book.title
-        holder.author.text = "By ${book.author}"
-        holder.rating.rating = (book.rating as? Double)?.toFloat() ?: 0f
+        holder.author.text = "By ${book.authors}"
+        holder.rating.rating = book.reviewScore.toFloat()
     }
 
     class DiffCallback : DiffUtil.ItemCallback<DataItem>() {

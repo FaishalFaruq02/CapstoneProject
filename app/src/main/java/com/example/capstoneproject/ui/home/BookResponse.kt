@@ -13,6 +13,9 @@ data class BookResponse(
 
 data class DataItem(
 
+	@field:SerializedName("profil_Name")
+	val profilName: String,
+
 	@field:SerializedName("author")
 	val author: String,
 
@@ -20,17 +23,35 @@ data class DataItem(
 	val name: String,
 
 	@field:SerializedName("rating")
-	val rating: Double,
+	val rating: Any,
 
 	@field:SerializedName("id")
 	val id: String,
 
-	@field:SerializedName("user")
-	val user: String,
+	@field:SerializedName("general_category")
+	val generalCategory: String,
 
-	@field:SerializedName("genre")
-	val genre: String,
+	@field:SerializedName("Title")
+	val title: String,
 
-	@field:SerializedName("title")
-	val title: String
+	@field:SerializedName("review/score")
+	val reviewScore: Double,
+
+	@field:SerializedName("authors")
+	val authors: String,
+
+	@field:SerializedName("image")
+	val image: String,
+
+	@field:SerializedName("description")
+	val description: String,
+
+	@field:SerializedName("publisher")
+	val publisher: String,
+
+	@field:SerializedName("categories")
+	val categories: String,
+
+	@field:SerializedName("publishedDate")
+	val publishedDate: Any
 )
