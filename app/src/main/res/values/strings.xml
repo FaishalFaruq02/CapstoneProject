@@ -31,4 +31,5 @@
     <string name="Update_Settings">Update Your Settings</string>
     <string name="User_Name">User Name</string>
     <string name="dark_mode">Dark Mode</string>
+    <string name="arrow_icon">Arrow Icon</string>
 </resources>

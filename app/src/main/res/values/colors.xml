@@ -11,4 +11,13 @@
     <color name="primary">#1C161E</color>
     <color name="primary_disable">#302933</color>
     <color name="grey">#808080</color>
+
+    <color name="light_background">#FFF5E1</color>
+    <color name="light_primary">#EAB308</color>
+    <color name="light_text">#000000</color>
+
+    <color name="dark_background">#1F1B24</color>
+    <color name="dark_primary">#1C161E</color>
+    <color name="dark_text">#FFFFFF</color>
+
 </resources>

@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:text="@string/title"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginBottom="4dp" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -42,7 +42,9 @@
                 android:id="@+id/titleEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="?attr/colorOnBackground"
+                android:backgroundTint="?attr/colorPrimary"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Description -->
@@ -51,7 +53,7 @@
             android:layout_height="wrap_content"
             android:text="@string/description"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp" />
 
@@ -77,7 +79,7 @@
             android:layout_height="wrap_content"
             android:text="@string/authors"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp" />
 
@@ -92,7 +94,9 @@
                 android:id="@+id/authorsEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="?attr/colorOnBackground"
+                android:backgroundTint="?attr/colorPrimary"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Publisher -->
@@ -101,7 +105,7 @@
             android:layout_height="wrap_content"
             android:text="@string/publisher"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp" />
 
@@ -116,7 +120,9 @@
                 android:id="@+id/publisherEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="?attr/colorOnBackground"
+                android:backgroundTint="?attr/colorPrimary"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Publish Date -->
@@ -125,7 +131,7 @@
             android:layout_height="wrap_content"
             android:text="@string/publish_date"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp" />
 
@@ -140,7 +146,9 @@
                 android:id="@+id/publishDateEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="date" />
+                android:inputType="date"
+                android:textColor="?attr/colorOnBackground"
+                android:backgroundTint="?attr/colorPrimary"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- General Category -->
@@ -149,7 +157,7 @@
             android:layout_height="wrap_content"
             android:text="@string/general_category"
             android:textSize="16sp"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnBackground"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp" />
 
@@ -164,7 +172,9 @@
                 android:id="@+id/generalCategoryEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:inputType="text"
+                android:textColor="?attr/colorOnBackground"
+                android:backgroundTint="?attr/colorPrimary"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- Button -->
@@ -174,7 +184,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_gravity="center_horizontal"
-            android:enabled="false"/>
+            android:enabled="false"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary"/>
 
     </LinearLayout>
 

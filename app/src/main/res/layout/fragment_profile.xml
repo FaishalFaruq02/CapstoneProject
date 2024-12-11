@@ -47,7 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="?attr/colorBackground">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -60,7 +61,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/My_Status"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnBackground"/>
 
                 <TextView
                     android:id="@+id/subtitle_my_status"
@@ -69,7 +71,7 @@
                     android:layout_below="@id/title_my_status"
                     android:layout_marginTop="4dp"
                     android:text="@string/View_Status"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/grey"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -89,7 +91,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="?attr/colorBackground">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -102,7 +105,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/My_Library"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnBackground"/>
 
                 <TextView
                     android:id="@+id/subtitle_my_library"
@@ -111,7 +115,7 @@
                     android:layout_below="@id/title_my_library"
                     android:layout_marginTop="4dp"
                     android:text="@string/View_Library"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/grey"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -131,7 +135,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="?attr/colorBackground">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -144,7 +149,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/My_Upload"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnBackground"/>
 
                 <TextView
                     android:id="@+id/subtitle_my_upload"
@@ -153,7 +159,7 @@
                     android:layout_below="@id/title_my_upload"
                     android:layout_marginTop="4dp"
                     android:text="@string/Upload_Book"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/grey"
                     android:textSize="14sp" />
 
                 <ImageView
@@ -172,7 +178,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            app:cardCornerRadius="8dp">
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="?attr/colorBackground">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -185,7 +192,8 @@
                     android:layout_height="wrap_content"
                     android:text="@string/Settings"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnBackground"/>
 
                 <TextView
                     android:id="@+id/subtitle_setting"
@@ -194,7 +202,7 @@
                     android:layout_below="@id/title_setting"
                     android:layout_marginTop="4dp"
                     android:text="@string/Update_Settings"
-                    android:textColor="@android:color/darker_gray"
+                    android:textColor="@color/grey"
                     android:textSize="14sp" />
 
                 <ImageView
