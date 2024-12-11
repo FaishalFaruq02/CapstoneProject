@@ -6,6 +6,8 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -15,8 +17,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.capstoneproject.R
+import com.example.capstoneproject.data.api.ApiConfig
 import com.example.capstoneproject.databinding.ActivityMyUploadBinding
+import kotlinx.coroutines.launch
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import java.io.File
 
 class MyUploadActivity : AppCompatActivity() {
 
@@ -39,21 +51,43 @@ class MyUploadActivity : AppCompatActivity() {
         currentImageUri = savedInstanceState?.getString("CURRENT_IMAGE_URI")?.let { Uri.parse(it) }
         if (currentImageUri != null) {
             showImage()
-            updateUploadButtonState()
         }
+
+        binding.titleEditText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                updateUploadButtonState()
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+
+        binding.authorsEditText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                updateUploadButtonState()
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+
+        binding.ratingEditText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                updateUploadButtonState()
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
+
+        binding.generalCategoryEditText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                updateUploadButtonState()
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+        })
 
         binding.galleryButton.setOnClickListener { startGallery() }
         binding.cameraButton.setOnClickListener { checkCameraPermission() }
-        binding.uploadButton.setOnClickListener {
-            if (currentImageUri != null) {
-                val intent = Intent(this, MyUploadBookActivity::class.java).apply {
-                    putExtra("IMAGE_URI", currentImageUri.toString())
-                }
-                startActivity(intent)
-            } else {
-                Toast.makeText(this, "Please select or take a photo first!", Toast.LENGTH_SHORT).show()
-            }
-        }
+        binding.saveButton.setOnClickListener { uploadBookData()}
 
     }
 
@@ -72,7 +106,6 @@ class MyUploadActivity : AppCompatActivity() {
         if (uri != null) {
             currentImageUri = uri
             showImage()
-            updateUploadButtonState()
         } else {
             Toast.makeText(this, "No media selected or action canceled.", Toast.LENGTH_SHORT).show()
             Log.d("Photo Picker", "No media selected")
@@ -102,7 +135,6 @@ class MyUploadActivity : AppCompatActivity() {
             if (result.resultCode == RESULT_OK) {
                 Toast.makeText(this, "Photo saved successfully!", Toast.LENGTH_SHORT).show()
                 showImage()
-                updateUploadButtonState()
             } else {
                 Toast.makeText(this, "Camera action canceled.", Toast.LENGTH_SHORT).show()
             }
@@ -139,10 +171,67 @@ class MyUploadActivity : AppCompatActivity() {
     }
 
     private fun updateUploadButtonState() {
-        binding.uploadButton.isEnabled = currentImageUri != null
+        val titleFilled = binding.titleEditText.text.toString().trim().isNotEmpty()
+        val authorsFilled = binding.authorsEditText.text.toString().trim().isNotEmpty()
+        val ratingFilled = binding.ratingEditText.text.toString().trim().isNotEmpty()
+        val categoryFilled = binding.generalCategoryEditText.text.toString().trim().isNotEmpty()
+        val imageSelected = currentImageUri != null
+
+        binding.saveButton.isEnabled = titleFilled && authorsFilled && ratingFilled && categoryFilled && imageSelected
     }
 
-    private fun uploadImage() {
-        Toast.makeText(this, "Fitur ini belum tersedia", Toast.LENGTH_SHORT).show()
+
+    private fun uploadBookData() {
+        val title = binding.titleEditText.text.toString().trim()
+        val authors = binding.authorsEditText.text.toString().trim()
+        val rating = binding.ratingEditText.text.toString().trim()
+        val category = binding.generalCategoryEditText.text.toString().trim()
+
+        if (title.isEmpty() || authors.isEmpty() || rating.isEmpty() || category.isEmpty() || currentImageUri == null) {
+            Toast.makeText(this, "All fields and image must be filled", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val titleBody = title.toRequestBody("text/plain".toMediaTypeOrNull())
+        val authorsBody = authors.toRequestBody("text/plain".toMediaTypeOrNull())
+        val ratingBody = rating.toRequestBody("text/plain".toMediaTypeOrNull())
+        val categoryBody = category.toRequestBody("text/plain".toMediaTypeOrNull())
+        val file = File(getRealPathFromURI(currentImageUri!!))
+
+        if (!file.exists()) {
+            Toast.makeText(this, "File does not exist", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val imageBody = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+        val imagePart = MultipartBody.Part.createFormData("image", file.name, imageBody)
+
+        val apiService = ApiConfig.getApiService()
+        lifecycleScope.launch {
+            val response = apiService.uploadBook(
+                titleBody, authorsBody, ratingBody, categoryBody, imagePart
+            )
+            if (response.isSuccessful) {
+                Toast.makeText(this@MyUploadActivity, "Book uploaded successfully", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                Toast.makeText(this@MyUploadActivity, "Failed to upload book", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
+
+
+    private fun getRealPathFromURI(contentUri: Uri): String? {
+        var filePath: String? = null
+        val cursor = contentResolver.query(contentUri, null, null, null, null)
+        cursor?.let {
+            if (it.moveToFirst()) {
+                val columnIndex = it.getColumnIndex("_data")
+                filePath = it.getString(columnIndex)
+            }
+            it.close()
+        }
+        return filePath
+    }
+
 }

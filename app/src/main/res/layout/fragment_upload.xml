@@ -52,6 +52,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:contentDescription="@string/arrow_icon"
+                    app:tint="?attr/colorOnBackground"
                     android:src="@drawable/baseline_arrow_right_24" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -95,6 +96,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:contentDescription="@string/arrow_icon"
+                    app:tint="?attr/colorOnBackground"
                     android:src="@drawable/baseline_arrow_right_24" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>

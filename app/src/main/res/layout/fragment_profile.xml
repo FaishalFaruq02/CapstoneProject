@@ -26,6 +26,7 @@
                 android:layout_height="100dp"
                 android:src="@drawable/baseline_account_circle_24"
                 android:layout_gravity="center"
+                app:tint="?attr/colorOnBackground"
                 android:layout_marginBottom="8dp"/>
 
             <!-- User Name -->
@@ -34,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/User_Name"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:layout_gravity="center" />
@@ -80,6 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    app:tint="?attr/colorOnBackground"
                     android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -124,6 +126,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    app:tint="?attr/colorOnBackground"
                     android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -168,6 +171,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    app:tint="?attr/colorOnBackground"
                     android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -211,6 +215,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
+                    app:tint="?attr/colorOnBackground"
                     android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>

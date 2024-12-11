@@ -32,14 +32,21 @@ class BookAdapter(private val bookList: List<DataItem>) :
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val book = getItem(position)
 
-        // Load image using Glide
+        val randomImages = listOf(
+            R.drawable.img,
+            R.drawable.img1,
+            R.drawable.img2,
+            R.drawable.img3,
+            R.drawable.img4,
+            R.drawable.img5
+        )
+
         Glide.with(holder.itemView.context)
             .load(book.image)
             .placeholder(R.drawable.baseline_image_24)
-            .error(R.drawable.baseline_image_24)
+            .error(randomImages.random())
             .into(holder.image)
 
-        // Set other data
         holder.title.text = book.title
         holder.author.text = "By ${book.authors}"
         holder.rating.rating = book.reviewScore.toFloat()

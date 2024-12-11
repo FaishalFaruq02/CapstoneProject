@@ -28,6 +28,6 @@ class Button : AppCompatButton {
         setTextColor(txtColor)
         textSize = 12f
         gravity = Gravity.CENTER
-        text = if(isEnabled) "Next" else "Fill First"
+        text = if(isEnabled) "Upload" else "Fill First"
     }
 }

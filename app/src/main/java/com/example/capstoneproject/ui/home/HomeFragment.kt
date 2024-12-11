@@ -15,7 +15,9 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: HomeViewModel
-    private lateinit var adapter: BookAdapter
+    private lateinit var adapter1: BookAdapter
+    private lateinit var adapter2: BookAdapter
+    private lateinit var adapter3: BookAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -27,29 +29,35 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Inisialisasi ViewModel
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
-        // Setup RecyclerView dan Adapter
         setupRecyclerView()
 
-        // Observe LiveData dari ViewModel
         observeViewModel()
 
-        // Ambil data buku
         viewModel.fetchBooks()
     }
 
     private fun setupRecyclerView() {
-        adapter = BookAdapter(emptyList())
-        binding.rvBooks.layoutManager = LinearLayoutManager(requireContext())
-        binding.rvBooks.adapter = adapter
+        adapter1 = BookAdapter(emptyList())
+        binding.rvBooksHorizontal1.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvBooksHorizontal1.adapter = adapter1
+
+        adapter2 = BookAdapter(emptyList())
+        binding.rvBooksHorizontal2.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvBooksHorizontal2.adapter = adapter2
+
+        adapter3 = BookAdapter(emptyList())
+        binding.rvBooksHorizontal3.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        binding.rvBooksHorizontal3.adapter = adapter3
     }
 
     private fun observeViewModel() {
         viewModel.books.observe(viewLifecycleOwner) { books ->
             if (books.isNotEmpty()) {
-                adapter.submitList(books)
+                adapter1.submitList(books.take(7))
+                adapter2.submitList(books.drop(5).take(5))
+                adapter3.submitList(books.takeLast(8))
             } else {
                 Toast.makeText(requireContext(), "No books available", Toast.LENGTH_SHORT).show()
             }

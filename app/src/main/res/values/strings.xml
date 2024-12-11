@@ -32,4 +32,8 @@
     <string name="User_Name">User Name</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="arrow_icon">Arrow Icon</string>
+    <string name="rating">Rating</string>
+    <string name="popular">Popular Books</string>
+    <string name="arrivals">New Arrivals</string>
+    <string name="recommend">Recommended for You</string>
 </resources>
