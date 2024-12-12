@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.view.WindowInsetsController
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.example.capstoneproject.R
 import com.example.capstoneproject.databinding.FragmentUploadBinding
 import com.example.capstoneproject.ui.upload.mybook.MyBookActivity
 import com.example.capstoneproject.ui.upload.myupload.MyUploadActivity
@@ -23,9 +25,6 @@ class UploadFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val uploadViewModel =
-            ViewModelProvider(this).get(UploadViewModel::class.java)
-
         _binding = FragmentUploadBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -41,8 +40,7 @@ class UploadFragment : Fragment() {
 
         // Setup tombol CardView ke buku saya
         binding.cardMyBook.setOnClickListener {
-            val intent = Intent(requireContext(), MyBookActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_navigation_upload_to_navigation_library)
         }
     }
 

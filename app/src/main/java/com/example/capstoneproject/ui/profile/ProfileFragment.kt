@@ -29,7 +29,7 @@ class ProfileFragment : Fragment() {
         // Handle "My Library"
         val cardMyLibrary: CardView = view.findViewById(R.id.card_my_library)
         cardMyLibrary.setOnClickListener {
-            findNavController().navigate(R.id.action_navigation_profile_to_library)
+            findNavController().navigate(R.id.action_navigation_profile_to_home)
         }
 
         // Handle "My Upload"

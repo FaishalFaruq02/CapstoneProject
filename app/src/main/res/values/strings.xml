@@ -28,12 +28,18 @@
     <string name="View_Library">Check Your Library</string>
     <string name="Upload_Book">Check Your Upload</string>
     <string name="Settings">Settings</string>
-    <string name="Update_Settings">Update Your Settings</string>
+    <string name="Update_Settings">Update Your Themes</string>
     <string name="User_Name">User Name</string>
+    <string name="User_Name_email">User@gmail.com</string>
     <string name="dark_mode">Dark Mode</string>
     <string name="arrow_icon">Arrow Icon</string>
     <string name="rating">Rating</string>
     <string name="popular">Popular Books</string>
     <string name="arrivals">New Arrivals</string>
     <string name="recommend">Recommended for You</string>
+    <string name="empty_library">Empty</string>
+    <string name="My_Home">My Home</string>
+    <string name="View_Home">Search Your Book</string>
+    <string name="image_desc">Logo</string>
+    <string name="us_book">US Book</string>
 </resources>

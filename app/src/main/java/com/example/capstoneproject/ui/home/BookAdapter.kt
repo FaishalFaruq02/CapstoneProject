@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.capstoneproject.R
 
-class BookAdapter(private val bookList: List<DataItem>) :
+class BookAdapter(
+    private val bookList: List<DataItem>,
+    private val onAddToLibraryClick: (DataItem) -> Unit
+) :
     ListAdapter<DataItem, BookAdapter.BookViewHolder>(DiffCallback()) {
 
         // menampilkan title, author, rating, gambar belum ada di response API
@@ -21,6 +24,7 @@ class BookAdapter(private val bookList: List<DataItem>) :
             val title: TextView = view.findViewById(R.id.tvBookTitle)
             val author: TextView = view.findViewById(R.id.tvBookAuthor)
             val rating: RatingBar = view.findViewById(R.id.rbBookRating)
+            val addToLibrary: ImageView = view.findViewById(R.id.ivAddToLibrary)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -50,6 +54,10 @@ class BookAdapter(private val bookList: List<DataItem>) :
         holder.title.text = book.title
         holder.author.text = "By ${book.authors}"
         holder.rating.rating = book.reviewScore.toFloat()
+
+        holder.addToLibrary.setOnClickListener {
+            onAddToLibraryClick(book)
+        }
     }
 
     class DiffCallback : DiffUtil.ItemCallback<DataItem>() {

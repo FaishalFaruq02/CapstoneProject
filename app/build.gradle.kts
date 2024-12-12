@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.capstoneproject"
-        minSdk = 35
+        minSdk = 26
         targetSdk = 35
         versionCode = 1
         versionName = "1.0"
@@ -58,10 +58,10 @@ dependencies {
     implementation(libs.androidx.camera.camera2.v130)
     implementation(libs.androidx.camera.lifecycle.v130)
     implementation(libs.androidx.camera.view.v130)
-    implementation (libs.circleimageview)
-    implementation (libs.retrofit)
-    implementation (libs.converter.gson)
-    implementation (libs.glide)
-    implementation (libs.androidx.recyclerview)
-    implementation (libs.okhttp)
+    implementation(libs.circleimageview)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.glide)
+    implementation(libs.androidx.recyclerview)
+    implementation(libs.okhttp)
 }

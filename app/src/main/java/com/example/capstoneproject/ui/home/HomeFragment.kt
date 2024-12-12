@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.capstoneproject.databinding.FragmentHomeBinding
+import com.example.capstoneproject.ui.library.LibraryViewModel
 
 class HomeFragment : Fragment() {
 
@@ -39,15 +40,21 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupRecyclerView() {
-        adapter1 = BookAdapter(emptyList())
+        adapter1 = BookAdapter(emptyList()) { book ->
+            addToLibrary(book)
+        }
         binding.rvBooksHorizontal1.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvBooksHorizontal1.adapter = adapter1
 
-        adapter2 = BookAdapter(emptyList())
+        adapter2 = BookAdapter(emptyList()) { book ->
+            addToLibrary(book)
+        }
         binding.rvBooksHorizontal2.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvBooksHorizontal2.adapter = adapter2
 
-        adapter3 = BookAdapter(emptyList())
+        adapter3 = BookAdapter(emptyList()) { book ->
+            addToLibrary(book)
+        }
         binding.rvBooksHorizontal3.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvBooksHorizontal3.adapter = adapter3
     }
@@ -55,6 +62,10 @@ class HomeFragment : Fragment() {
     private fun observeViewModel() {
         viewModel.books.observe(viewLifecycleOwner) { books ->
             if (books.isNotEmpty()) {
+                binding.pbSection1.visibility = View.GONE
+                binding.pbSection2.visibility = View.GONE
+                binding.pbSection3.visibility = View.GONE
+
                 adapter1.submitList(books.take(7))
                 adapter2.submitList(books.drop(5).take(5))
                 adapter3.submitList(books.takeLast(8))
@@ -64,7 +75,15 @@ class HomeFragment : Fragment() {
         }
 
         viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
-            binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+            if (isLoading) {
+                binding.pbSection1.visibility = View.VISIBLE
+                binding.pbSection2.visibility = View.VISIBLE
+                binding.pbSection3.visibility = View.VISIBLE
+            } else {
+                binding.pbSection1.visibility = View.GONE
+                binding.pbSection2.visibility = View.GONE
+                binding.pbSection3.visibility = View.GONE
+            }
         }
 
         viewModel.errorMessage.observe(viewLifecycleOwner) { errorMessage ->
@@ -72,6 +91,12 @@ class HomeFragment : Fragment() {
                 Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun addToLibrary(book: DataItem) {
+        val libraryViewModel = ViewModelProvider(requireActivity())[LibraryViewModel::class.java]
+        libraryViewModel.addBookToLibrary(book)
+        Toast.makeText(requireContext(), "${book.title} added to library!", Toast.LENGTH_SHORT).show()
     }
 
     override fun onDestroyView() {

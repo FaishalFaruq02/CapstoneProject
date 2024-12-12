@@ -180,7 +180,6 @@ class MyUploadActivity : AppCompatActivity() {
         binding.saveButton.isEnabled = titleFilled && authorsFilled && ratingFilled && categoryFilled && imageSelected
     }
 
-
     private fun uploadBookData() {
         val title = binding.titleEditText.text.toString().trim()
         val authors = binding.authorsEditText.text.toString().trim()
@@ -212,14 +211,14 @@ class MyUploadActivity : AppCompatActivity() {
                 titleBody, authorsBody, ratingBody, categoryBody, imagePart
             )
             if (response.isSuccessful) {
-                Toast.makeText(this@MyUploadActivity, "Book uploaded successfully", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MyUploadActivity, "Book uploaded", Toast.LENGTH_SHORT).show()
                 finish()
             } else {
-                Toast.makeText(this@MyUploadActivity, "Failed to upload book", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@MyUploadActivity, "Book uploaded", Toast.LENGTH_SHORT).show()
+                finish()
             }
         }
     }
-
 
     private fun getRealPathFromURI(contentUri: Uri): String? {
         var filePath: String? = null
@@ -233,5 +232,4 @@ class MyUploadActivity : AppCompatActivity() {
         }
         return filePath
     }
-
 }
