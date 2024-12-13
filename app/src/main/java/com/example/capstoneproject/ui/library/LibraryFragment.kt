@@ -50,7 +50,7 @@ class LibraryFragment : Fragment() {
         viewModel.books.observe(viewLifecycleOwner) { books ->
             if (books.isNotEmpty()) {
                 binding.progressBar.visibility = View.GONE
-                adapter.submitList(books.take(7))
+                adapter.submitList(books.drop(7).take(7))
             } else {
                 Toast.makeText(requireContext(), "No books available", Toast.LENGTH_SHORT).show()
             }
