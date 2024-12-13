@@ -72,8 +72,8 @@ class HomeFragment : Fragment() {
                 binding.pbSection2.visibility = View.GONE
                 binding.pbSection3.visibility = View.GONE
 
-                adapter1.submitList(books.take(7))
-                adapter2.submitList(books.drop(5).take(5))
+                adapter1.submitList(books.drop(1).take(8))
+                adapter2.submitList(books.drop(9).take(5))
                 adapter3.submitList(books.takeLast(8))
             } else {
                 Toast.makeText(requireContext(), "No books available", Toast.LENGTH_SHORT).show()
