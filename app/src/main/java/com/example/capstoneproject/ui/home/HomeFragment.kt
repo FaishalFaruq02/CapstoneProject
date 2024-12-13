@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.capstoneproject.R
 import com.example.capstoneproject.databinding.FragmentHomeBinding
 import com.example.capstoneproject.ui.library.LibraryViewModel
 
@@ -37,6 +38,11 @@ class HomeFragment : Fragment() {
         observeViewModel()
 
         viewModel.fetchBooks()
+
+        val navigateTo = activity?.intent?.getStringExtra("navigate_to")
+        if (navigateTo == "home") {
+            Toast.makeText(requireContext(), "Navigated to Home after upload!", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun setupRecyclerView() {

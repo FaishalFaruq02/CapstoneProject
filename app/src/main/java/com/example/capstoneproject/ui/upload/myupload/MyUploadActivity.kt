@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.lifecycleScope
+import com.example.capstoneproject.MainActivity
 import com.example.capstoneproject.R
 import com.example.capstoneproject.data.api.ApiConfig
 import com.example.capstoneproject.databinding.ActivityMyUploadBinding
@@ -212,10 +213,15 @@ class MyUploadActivity : AppCompatActivity() {
             )
             if (response.isSuccessful) {
                 Toast.makeText(this@MyUploadActivity, "Book uploaded", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this@MyUploadActivity, MainActivity::class.java)
+                intent.putExtra("navigate_to", "home")
+                startActivity(intent)
                 finish()
             } else {
                 Toast.makeText(this@MyUploadActivity, "Book uploaded", Toast.LENGTH_SHORT).show()
-                finish()
+                val intent = Intent(this@MyUploadActivity, MainActivity::class.java)
+                intent.putExtra("navigate_to", "home")
+                startActivity(intent)
             }
         }
     }
