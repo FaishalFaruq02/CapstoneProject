@@ -1,14 +1,15 @@
 package com.example.capstoneproject.ui.home
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowInsetsController
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.capstoneproject.R
 import com.example.capstoneproject.databinding.FragmentHomeBinding
 import com.example.capstoneproject.ui.library.LibraryViewModel
 
@@ -103,6 +104,20 @@ class HomeFragment : Fragment() {
         val libraryViewModel = ViewModelProvider(requireActivity())[LibraryViewModel::class.java]
         libraryViewModel.addBookToLibrary(book)
         Toast.makeText(requireContext(), "${book.title} added to library!", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            requireActivity().window.setDecorFitsSystemWindows(false)
+            requireActivity().window.insetsController?.let { controller ->
+                controller.hide(WindowInsetsController.BEHAVIOR_SHOW_BARS_BY_SWIPE)
+            }
+        } else {
+            @Suppress("DEPRECATION")
+            requireActivity().window.decorView.systemUiVisibility =
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        }
     }
 
     override fun onDestroyView() {

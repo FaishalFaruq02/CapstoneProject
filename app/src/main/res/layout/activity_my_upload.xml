@@ -12,17 +12,25 @@
         android:layout_height="wrap_content"
         android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/previewImageView"
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/previewCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="16dp"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/galleryButton"
-            app:layout_constraintDimensionRatio="4:5"
-            app:srcCompat="@drawable/baseline_image_24" />
+            app:layout_constraintDimensionRatio="4:5">
+
+            <ImageView
+                android:id="@+id/previewImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_image_24" />
+        </com.google.android.material.card.MaterialCardView>
 
         <Button
             android:id="@+id/galleryButton"
@@ -34,7 +42,7 @@
             app:layout_constraintEnd_toStartOf="@+id/cameraButton"
             app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/previewImageView" />
+            app:layout_constraintTop_toBottomOf="@+id/previewCard" />
 
         <Button
             android:id="@+id/cameraButton"
@@ -45,7 +53,7 @@
             android:text="@string/camera"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/galleryButton"
-            app:layout_constraintTop_toBottomOf="@+id/previewImageView" />
+            app:layout_constraintTop_toBottomOf="@+id/previewCard" />
 
         <!-- Title -->
         <TextView
@@ -74,6 +82,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="?attr/colorPrimary"
                 android:inputType="text"
+                android:hint="Insert title"
                 android:textColor="?attr/colorOnBackground" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,6 +112,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="?attr/colorPrimary"
                 android:inputType="text"
+                android:hint="Insert authors"
                 android:textColor="?attr/colorOnBackground" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -130,6 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number"
+                android:hint="Insert rating"
                 android:textColor="?attr/colorOnBackground"
                 android:backgroundTint="?attr/colorPrimary"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -159,6 +170,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
+                android:hint="Insert general category"
                 android:textColor="?attr/colorOnBackground"
                 android:backgroundTint="?attr/colorPrimary"/>
         </com.google.android.material.textfield.TextInputLayout>

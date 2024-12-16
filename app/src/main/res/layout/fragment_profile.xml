@@ -42,14 +42,15 @@
         </LinearLayout>
 
         <!-- Card for My Status -->
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_my_status"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
-            app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="?attr/colorBackground">
+            app:cardCornerRadius="12dp"
+            app:strokeColor="?attr/colorPrimary"
+            app:strokeWidth="2dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -61,7 +62,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/My_Status"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="?attr/colorOnBackground"/>
 
@@ -76,25 +77,26 @@
                     android:textSize="14sp" />
 
                 <ImageView
-                    android:id="@+id/icon_arrow_my_status"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    app:tint="?attr/colorOnBackground"
+                    android:contentDescription="@string/arrow_icon"
+                    app:tint="?attr/colorPrimary"
                     android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Card for My Library -->
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_my_library"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
-            app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="?attr/colorBackground">
+            app:cardCornerRadius="12dp"
+            app:strokeColor="?attr/colorPrimary"
+            app:strokeWidth="2dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -106,7 +108,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/My_Home"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="?attr/colorOnBackground"/>
 
@@ -122,24 +124,26 @@
 
                 <ImageView
                     android:id="@+id/icon_arrow_my_library"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    app:tint="?attr/colorOnBackground"
+                    android:contentDescription="@string/arrow_icon"
+                    app:tint="?attr/colorPrimary"
                     android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Card for My Upload -->
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_my_upload"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:elevation="4dp"
-            app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="?attr/colorBackground">
+            app:cardCornerRadius="12dp"
+            app:strokeColor="?attr/colorPrimary"
+            app:strokeWidth="2dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -151,7 +155,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/My_Upload"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="?attr/colorOnBackground"/>
 
@@ -166,24 +170,25 @@
                     android:textSize="14sp" />
 
                 <ImageView
-                    android:id="@+id/icon_arrow_my_upload"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    app:tint="?attr/colorOnBackground"
+                    android:contentDescription="@string/arrow_icon"
+                    app:tint="?attr/colorPrimary"
                     android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
         <!-- Card for Setting -->
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:id="@+id/card_setting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:elevation="4dp"
-            app:cardCornerRadius="8dp"
-            app:cardBackgroundColor="?attr/colorBackground">
+            app:cardCornerRadius="12dp"
+            app:strokeColor="?attr/colorPrimary"
+            app:strokeWidth="2dp">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -195,7 +200,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/Settings"
-                    android:textSize="18sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:textColor="?attr/colorOnBackground"/>
 
@@ -210,15 +215,15 @@
                     android:textSize="14sp" />
 
                 <ImageView
-                    android:id="@+id/icon_arrow_setting"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    app:tint="?attr/colorOnBackground"
+                    android:contentDescription="@string/arrow_icon"
+                    app:tint="?attr/colorPrimary"
                     android:src="@drawable/baseline_arrow_right_24"/>
             </RelativeLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
     </LinearLayout>
 
